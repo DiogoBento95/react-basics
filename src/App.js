@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import HelloWorld from './Components/HelloWorld';
+import CounterExample from './Components/CounterExample';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         </a>
       </header>
       <HelloWorld name="Diogo"/>
+
+      <CounterExample />
     </div>
   );
 }
