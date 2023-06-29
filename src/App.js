@@ -1,19 +1,35 @@
 import React from 'react';
-import HelloWorld from './Components/HelloWorld';
 import CounterExample from './Components/CounterExample';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import {
+  BrowserRouter as Router,
+  Routes, //Switch
+  Route,
+} from 'react-router-dom';
+import Home from './Views/Home';
+import About from './Views/About';
 
 function App() {
   return (
     <div>
-      <Header />
+      <Router>
 
-      <HelloWorld name="Diogo"/>
+        <Header />
 
-      <CounterExample />
+        <div className='p-3'>
+          <Routes>
+            <Route exact path="/" element={<Home />}> </Route> 
+            <Route path="/about" element={<About />}> </Route>
+          </Routes>
+        </div>
 
-      <Footer />
+        <CounterExample />
+
+        <Footer />
+
+      </Router>
+
     </div>
   );
 }
