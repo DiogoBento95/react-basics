@@ -13,7 +13,7 @@ import Product from './Views/Product';
 
 function App() {
   return (
-    <div>
+    <div className='relative min-h-screen'>
       <Router>
 
         <Header />
