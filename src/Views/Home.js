@@ -3,38 +3,12 @@ import axios from "axios";
 import HelloWorld from '../Components/HelloWorld';
 import Loader from "../Components/Loader";
 import ProductCard from "../Components/ProductCard";
+import { useAxiosGet } from "../Hooks/HttpRequests";
 
 function Home() {
     let content = null
     const url = 'https://64a40400c3b509573b56ec23.mockapi.io/products1'
-    const [products, setProducts] = useState({
-        loading: false,
-        data: null,
-        error: false
-    })
-
-    useEffect(() => {
-        setProducts({
-            loading: true,
-            data:null,
-            error: false
-        })
-        axios.get(url)
-            .then(response => {
-                setProducts({
-                    loading: false,
-                    data: response.data,
-                    error: false
-                })
-            })
-            .catch(() => {
-                setProducts({
-                    loading: false,
-                    data: null,
-                    error: true
-                })
-            })
-    }, [url])
+    let products = useAxiosGet(url)
 
     if(products.error) {
         return (
